@@ -20,6 +20,7 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
     String fit;
 
     //testing
+    //testing 2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
