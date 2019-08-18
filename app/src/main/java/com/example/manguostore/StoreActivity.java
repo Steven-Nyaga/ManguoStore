@@ -19,6 +19,7 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
     String sub_category;
     String fit;
 
+    //testing
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
