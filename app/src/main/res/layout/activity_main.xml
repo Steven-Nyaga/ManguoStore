@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image" />
+
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_login"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email_login"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/email_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ed_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_login"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/password_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ed_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:password="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+                android:id="@+id/myLoaderProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="30dp"
+                app:lazyloader_animDur="800"
+                app:lazyloader_dotsDist="10dp"
+                app:lazyloader_dotsRadius="16dp"
+                app:lazyloader_firstDelayDur="150"
+                app:lazyloader_firstDotColor="@color/white"
+                app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+                app:lazyloader_secondDelayDur="300"
+                app:lazyloader_secondDotColor="@color/white"
+                app:lazyloader_thirdDotColor="@color/white"
+                android:layout_below="@id/line1"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/line1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="@string/login_now"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:onClick="login"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rellay2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/to_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/signup"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:onClick="toSignup"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/forgot_passwoerd"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:onClick="toForgotpass"/>
+    </RelativeLayout>
+
+</RelativeLayout >

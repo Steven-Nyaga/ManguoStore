@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background"
+    tools:context=".SignupActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
+        <ImageView
+            android:id="@+id/logo_signup"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image" />
+
+        <RelativeLayout
+            android:id="@+id/rellay1_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo_signup"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/tv_login_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/create_account"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:id="@+id/line1_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_login_signup"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email_signup"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/email_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ed_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_signup"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/password_signup"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ed_bg"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:password="true"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_ac_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/line1_signup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="createAccount"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="@string/create_now"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rellay2_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/to_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/transparent"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="toLogin"
+            android:text="@string/already_have_account"
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

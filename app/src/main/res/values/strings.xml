@@ -1,0 +1,121 @@
+<resources>
+    <string name="app_name">Manguo Store</string>
+    <string name="login">LOGIN</string>
+    <string name="email_login">Email</string>
+    <string name="password_login">Password</string>
+    <string name="login_now">Login Now</string>
+    <string name="signup">Signup</string>
+    <string name="forgot_passwoerd">Forgot Passwoerd</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="email_signup">Email</string>
+    <string name="password_signup">Password</string>
+    <string name="create_now">Create Now</string>
+    <string name="already_have_account">Already have Account</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="title_activity_landing_owner">LandingOwnerActivity</string>
+    <string name="phoone_number">Phoone Number</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="back_to_login">Back to Login</string>
+
+    //My arrays
+    //For Category
+    <string-array name="category">
+        <item>Select</item>
+        <item>Apparel</item>
+        <item>Footwear</item>
+        <item>Sportswear</item>
+        <item>Traditional</item>
+        <item>Formal Wear</item>
+        <item>Accessories</item>
+        <item>Watches and Jewelry</item>
+        <item>Cosmetics</item>
+        <item>Vintage and Secondhand</item>
+    </string-array>
+
+    //For Size
+    <string-array name="size">
+        <item>Select</item>
+        <item>XXS</item>
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+    //Array for Apparel
+    <string-array name="apparel">
+        <item>Select</item>
+        <item>Women</item>
+        <item>Men</item>
+        <item>Children</item>
+    </string-array>
+
+    //Array for Footwear
+    <string-array name="foot">
+        <item>Select</item>
+        <item>Women</item>
+        <item>Men</item>
+        <item>Children</item>
+    </string-array>
+    //Array for Sportswear
+    <string-array name="sport">
+        <item>Select</item>
+        <item>Shorts</item>
+        <item>Tracksuits</item>
+        <item>Swimsuits</item>
+        <item>Kits</item>
+    </string-array>
+    //Array for Traditional
+    <string-array name="traditional">
+        <item>Select</item>
+        <item>Dashiki</item>
+        <item>Tribal</item>
+        <item>Pants</item>
+    </string-array>
+    //Array for Formal
+    <string-array name="formal">
+        <item>Select</item>
+        <item>Suits</item>
+        <item>Ball-gowns</item>
+        <item>Evening-gowns</item>
+        <item>Wedding-gowns</item>
+    </string-array>
+    //Array for Accessories
+    <string-array name="accessories">
+        <item>Select</item>
+        <item>Handbags</item>
+        <item>Hats</item>
+        <item>Belts</item>
+        <item>Gloves</item>
+        <item>Socks</item>
+        <item>Stockings</item>
+    </string-array>
+    //Array for Watches and Jewls
+    <string-array name="gold">
+        <item>Select</item>
+        <item>Watches</item>
+        <item>Jewelry</item>
+    </string-array>
+    //Array for Cosmetics
+    <string-array name="cosmetics">
+        <item>Select</item>
+        <item>Makeup</item>
+        <item>Beauty Products</item>
+        <item>Hair Products</item>
+        <item>Skin Cleansers and Lotions</item>
+        <item>Perfume and Cologne</item>
+    </string-array>
+    //Array for Vintage and Secondhand
+    <string-array name="vintage">
+        <item>Select</item>
+        <item>Women</item>
+        <item>Men</item>
+        <item>Children</item>
+    </string-array>
+
+</resources>
+
