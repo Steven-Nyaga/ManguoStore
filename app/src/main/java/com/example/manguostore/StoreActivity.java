@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
+
 public class StoreActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spCategory;
@@ -18,6 +20,7 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
     String category;
     String sub_category;
     String fit;
+    LazyLoader lazyLoader;
 
     //testing
     //testing 2
@@ -33,6 +36,7 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
         viewGroup = (LinearLayout) findViewById(R.id.line_store);
         quantity = (LinearLayout) findViewById(R.id.quantity);
         amount = (LinearLayout) findViewById(R.id.amount);
+        lazyLoader = (LazyLoader) findViewById(R.id.myLoaderStore);
 
         //adapter to link data to the spinner
         ArrayAdapter<CharSequence> adCategory = ArrayAdapter.createFromResource(this,R.array.category,android.R.layout.simple_spinner_item);

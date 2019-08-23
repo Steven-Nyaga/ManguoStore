@@ -10,18 +10,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp">
 
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="center_horizontal|center_vertical"
+            android:background="@drawable/dottedboundary"
             >
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_cloud"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_cloud" />
         </LinearLayout>
         <RelativeLayout
             android:layout_below="@+id/layout"
@@ -215,6 +219,25 @@
             </LinearLayout>
         </RelativeLayout>
 
+        <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+            android:id="@+id/myLoaderStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="30dp"
+            app:lazyloader_animDur="800"
+            app:lazyloader_dotsDist="10dp"
+            app:lazyloader_dotsRadius="16dp"
+            app:lazyloader_firstDelayDur="150"
+            app:lazyloader_firstDotColor="@color/white"
+            app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+            app:lazyloader_secondDelayDur="300"
+            app:lazyloader_secondDotColor="@color/white"
+            app:lazyloader_thirdDotColor="@color/white"
+            android:layout_below="@id/line1"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
         <RelativeLayout
             android:id="@+id/rellay2"
             android:layout_width="match_parent"
@@ -233,7 +256,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="UPLOAD"
                 android:textAllCaps="true"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:layout_marginBottom="20dp"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -245,7 +269,8 @@
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"/>
+                android:paddingRight="10dp"
+                android:layout_marginBottom="20dp"/>
         </RelativeLayout>
     </LinearLayout>
 
