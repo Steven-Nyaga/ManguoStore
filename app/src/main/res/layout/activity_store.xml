@@ -220,22 +220,19 @@
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
-        <com.agrawalsuneet.dotsloader.loaders.LazyLoader
-            android:id="@+id/myLoaderStore"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="30dp"
-            app:lazyloader_animDur="800"
-            app:lazyloader_dotsDist="10dp"
-            app:lazyloader_dotsRadius="16dp"
-            app:lazyloader_firstDelayDur="150"
-            app:lazyloader_firstDotColor="@color/white"
-            app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
-            app:lazyloader_secondDelayDur="300"
-            app:lazyloader_secondDotColor="@color/white"
-            app:lazyloader_thirdDotColor="@color/white"
-            android:visibility="gone"/>
+            android:layout_below="@id/line_store">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+            </ProgressBar>
+        </LinearLayout>
         <RelativeLayout
             android:id="@+id/rellay2"
             android:layout_width="match_parent"
@@ -255,7 +252,8 @@
                 android:text="UPLOAD"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:onClick="upload"/>
 
             <Button
                 android:id="@+id/show_uploads"
