@@ -1,15 +1,21 @@
 package com.example.manguostore;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.agrawalsuneet.dotsloader.loaders.LazyLoader;
+import com.squareup.picasso.Picasso;
 
 public class StoreActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -21,9 +27,13 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
     String sub_category;
     String fit;
     LazyLoader lazyLoader;
+    // for getting image from phone
+    private static final int PICK_IMAGE_REQUEST = 1;
+    LinearLayout linearLayout;
+    Button upload, checkUploads;
+    ImageView myImage;
+    Uri imageUri;
 
-    //testing
-    //testing 2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +47,10 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
         quantity = (LinearLayout) findViewById(R.id.quantity);
         amount = (LinearLayout) findViewById(R.id.amount);
         lazyLoader = (LazyLoader) findViewById(R.id.myLoaderStore);
+        linearLayout = (LinearLayout) findViewById(R.id.layout_image);
+        upload = (Button) findViewById(R.id.upload);
+        checkUploads = (Button) findViewById(R.id.show_uploads);
+        myImage = (ImageView) findViewById(R.id.myimage);
 
         //adapter to link data to the spinner
         ArrayAdapter<CharSequence> adCategory = ArrayAdapter.createFromResource(this,R.array.category,android.R.layout.simple_spinner_item);
@@ -310,5 +324,26 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void getFromPhone(View view) {
+        openFileChooser();
+    }
+    private void openFileChooser(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            imageUri = data.getData();
+
+            Picasso.with(this).load(imageUri).into(myImage);
+        }
     }
 }
