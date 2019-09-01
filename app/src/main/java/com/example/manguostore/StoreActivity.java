@@ -388,20 +388,20 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
                 Toast.makeText(this, "Category must be Selected", Toast.LENGTH_SHORT).show();
             } else if (sub_category.equals("Select")) {
                 Toast.makeText(this, "Sub-category must be Selected", Toast.LENGTH_SHORT).show();
-            } else if (!category.equals("Footwear")) {
-                if (fit.equals("Select")) {
-                    Toast.makeText(this, "Size must be Selected", Toast.LENGTH_SHORT).show();
-                }else if(number_string.equals("")){
+            }else if (category.equals("Footwear")) {
+                if (shoe_size_string.equals("")) {
+                    Toast.makeText(this, "Shoe Size must be Indicated", Toast.LENGTH_SHORT).show();
+                } else if(number_string.equals("")){
                     Toast.makeText(this, "Number of items must be Indicated", Toast.LENGTH_SHORT).show();
                 }else if (price_string.equals("")) {
                     Toast.makeText(this, "Price of items must be Indicated", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadFile();
                 }
-            } else if (category.equals("Footwear")) {
-                if (shoe_size_string.equals("")) {
-                    Toast.makeText(this, "Shoe Size must be Indicated", Toast.LENGTH_SHORT).show();
-                } else if(number_string.equals("")){
+            } else if (!category.equals("Footwear")) {
+                if (fit.equals("Select")) {
+                    Toast.makeText(this, "Size must be Selected", Toast.LENGTH_SHORT).show();
+                }else if(number_string.equals("")){
                     Toast.makeText(this, "Number of items must be Indicated", Toast.LENGTH_SHORT).show();
                 }else if (price_string.equals("")) {
                     Toast.makeText(this, "Price of items must be Indicated", Toast.LENGTH_SHORT).show();
@@ -436,6 +436,8 @@ public class StoreActivity extends AppCompatActivity implements AdapterView.OnIt
                             taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
                     id = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     store.collection(id).document().set(upload);
+                    Intent refresh = new Intent(StoreActivity.this,StoreActivity.class);
+                    startActivity(refresh);
                 }
             }). addOnFailureListener(new OnFailureListener() {
                 @Override
