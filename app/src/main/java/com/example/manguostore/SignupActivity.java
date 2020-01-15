@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class SignupActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private EditText email, password;
+    private EditText email, password, brandName;
     public String status;
     public String id;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -49,6 +49,7 @@ public class SignupActivity extends AppCompatActivity {
 
         handler.postDelayed(runnable, 2000);
 
+        brandName = (EditText) findViewById(R.id.name_signup);
         email = (EditText) findViewById(R.id.email_signup);
         password = (EditText) findViewById(R.id.password_signup);
 
@@ -62,6 +63,68 @@ public class SignupActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void next(View view) {
+        final String inputEmail = email.getText().toString().trim();
+        String inputPassword = password.getText().toString().trim();
+        final String inputBrand = brandName.getText().toString().trim();
+
+        if (TextUtils.isEmpty(inputBrand)) {
+            Toast.makeText(getApplicationContext(), "Enter Brand Name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(inputEmail)) {
+            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(inputPassword)) {
+            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //create user
+        auth.createUserWithEmailAndPassword(inputEmail, inputPassword).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                // If sign in fails, display a message to the user. If sign in succeeds
+                // the auth state listener will be notified and logic to handle the
+                // signed in user can be handled in the listener.
+                if (!task.isSuccessful()) {
+                    Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
+                            Toast.LENGTH_SHORT).show();
+                }else {
+                    id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    POJO_user user = new POJO_user(inputBrand, inputEmail, id);
+                    // Add a new document with a specific ID (Auth id == Doc id)
+                    db.collection("users").document(id)
+                            .set(user)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(SignupActivity.this, "Registered Successfully." + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(SignupActivity.this, SignupTwoActivity.class));
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SignupActivity.this, "Registration failed." + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
+
+
+    }
+}
+/*
     public void createAccount(View view) {
         final String inputEmail = email.getText().toString().trim();
         String inputPassword = password.getText().toString().trim();
@@ -118,5 +181,5 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-    }
-}
+
+    }*/

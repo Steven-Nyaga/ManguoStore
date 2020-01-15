@@ -133,19 +133,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    user_status = documentSnapshot.getString("status");
-                    //Log.i( "Testing",user_status);
-                    if(user_status.equals("user")){
-                        Intent intent = new Intent(MainActivity.this,LandingUserActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }else if(user_status.equals("owner")){
+//                    DocumentSnapshot documentSnapshot = task.getResult();
+//                    user_status = documentSnapshot.getString("status");
+//                    //Log.i( "Testing",user_status);
+//                    if(user_status.equals("user")){
+//                        Intent intent = new Intent(MainActivity.this,LandingUserActivity.class);
+//                        startActivity(intent);
+//                        finish();
+//                    }else if(user_status.equals("owner")){
                         Intent intent = new Intent(MainActivity.this,LandingOwnerActivity.class);
                         startActivity(intent);
                         finish();
-                    }
-
                 }else {
                     Toast.makeText(MainActivity.this, "TAsk not even successful", Toast.LENGTH_LONG).show();
                 }
